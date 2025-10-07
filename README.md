@@ -58,6 +58,31 @@
 
 ## 实验结果
 具体结果见S-DES加密算法测试结果word文档
+### （1）第一关：基本测试
+1.1 加密
+假设明文为10011001，密钥为1100101011，则生成的密文为11111001
+<img width="416" height="118" alt="image" src="https://github.com/user-attachments/assets/57788c36-df0a-4854-b57a-4e50e16f30e6" />
+
+1.2 解密
+假设密文为11111001，密钥为1100101011，则生成的明文为10011001
+<img width="416" height="119" alt="image" src="https://github.com/user-attachments/assets/17f15bf8-e1fe-4857-8d62-bff19ae5c58b" />
+
+### （2）第二关：交叉测试
+考虑到是算法标准，所有人在编写程序的时候需要使用相同算法流程和转换单元(P-Box、S-Box等)，以保证算法和程序在异构的系统或平台上都可以正常运行。设有A和B两组位同学(选择相同的密钥K)；则A、B组同学编写的程序对明文P进行加密得到相同的密文C；或者B组同学接收到A组程序加密的密文C，使用B组程序进行解密可得到与A相同的P。经验证，与其他团队的加解密算法的结果能对应。
+
+### （3）第三关：扩展功能
+考虑到向实用性扩展，加密算法的数据输入可以是ASII编码字符串(分组为1 Byte)，对应地输出也可以是ACII字符串(很可能是乱码)。
+<img width="416" height="44" alt="image" src="https://github.com/user-attachments/assets/e914beb5-c9bc-4176-95c2-18d65ecda25e" />
+<img width="371" height="132" alt="image" src="https://github.com/user-attachments/assets/81bc6a65-2811-4a9a-b943-e7c3bb3a4bbf" />
+
+### （4）第四关：暴力破解
+假设你找到了使用相同密钥的明、密文对(一个或多个)，请尝试使用暴力破解的方法找到正确的密钥Key。
+<img width="199" height="109" alt="image" src="https://github.com/user-attachments/assets/ead8b31b-aac5-4c49-81ee-34d7214e3f84" />
+
+### （5）第五关：封闭测试
+根据第4关的结果，进一步分析，对于你随机选择的一个明密文对，是不是有不止一个密钥Key？进一步扩展，对应明文空间任意给定的明文分组P_{n}，是否会出现选择不同的密钥K_{i}\ne K_{j}加密得到相同密文C_n的情况？
+<img width="247" height="141" alt="image" src="https://github.com/user-attachments/assets/628c1242-f309-45aa-8b1b-3ee03c6a5aa3" />
+
 
 ## 总结
 ### 典型问题​：
